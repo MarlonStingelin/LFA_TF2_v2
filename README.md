@@ -134,3 +134,5 @@ no caso de ter menos veículos produzidos do que o maximo que a linha pode produ
 
 no caso da linha de produção ter mais pedidos para montagem do que a linha pode produzir, ele deve so ir até o que o valor i que seja igual ao max_prod
 
+	![esquema_pilhas](https://github.com/MarlonStingelin/LFA_TF2_v2/assets/151676126/c49fee95-1e6a-4cce-8291-795c9aeceea7)
+
