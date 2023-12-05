@@ -22,9 +22,7 @@ Pseudo-código:
   	gera relatorio
   repete enquanto num_linhas != 0
 
-Esse programa vai "simular" uma linha de produção de autoveoveis através de um automato com pilha, a ao fim vai gerar um ralatorio sobre os veiculos produzidos pela montadora no dia.
-Podem haver 4 linhas de produção de diferentes modelos funcionando no mesmo dia, eles ainda pode apresentar 0 ou 1 ou 2 caracteristacas.
-Os veiculos serão dentro do progrma tratados com um sigla essa sigla tem um padrão sendo a primeira letra o modelo do veiculo e sua letras seguintes as possiveis caracteristicas diferenciais do modelo e a ultima letra indica se ouveram falhas na montagem do veiculo.
+Esse programa vai "simular" uma linha de produção de automóveis através de um autômato com pilha, a ao fim vai gerar um relatório sobre os veículos produzidos pela montadora no dia. Podem haver 4 linhas de produção de diferentes modelos funcionando no mesmo dia, eles ainda pode apresentar 0 ou 1 ou 2 características. Os veículos serão dentro do programa tratados com um sigla essa sigla tem um padrão sendo a primeira letra o modelo do veiculo e sua letras seguintes as possíveis características diferenciais do modelo e a ultima letra indica se houveram falhas na montagem do veiculo. 
 ex:
   modelos:a caracteristicas:x,y sem_caracteristica:n  sem_falhas:v com_falha:f
   anv - modelo a sem caracteristicas montado com sucesso
@@ -34,7 +32,7 @@ ex:
   anyf - modelo a com caracteristica y e sem a cracteristica x com falha na montagem 
   ...
 
-o programa vai receber um valor inteiro chamado de num_caract e deve gerar um número aleatorio de siglas formadas por uma letra inicial fornecida pelo programa zero ou mais letras que vão ser controladas pelo num_caract e uma letra final que pode ser "v" ou "f", ao gerar um sigla ele deve adicionar "|" ou "." sendo "|" usado para quando existem mais siglas geradas adiante e "." significa que chega ao fim do codigo. o num_caract é limitadas de 0 a 2, caso sejam 0 ele so gera a primeira e ultima letra, se for igual 1, ele tera uma letra a mais apos a primeira sendo essa chamada de caracteristica podendo ser "x" ou "n", ja no caso de num_caract ser 2 ele vai gerar siglas com outra letra anterior a a ultima, sendo essa letra "y" ou "n". Quanto a ultima letra ela tem uma porcentagem fornecida pelo sistema com a chance de ser "f", mas por padrão ele recebe "v". Vale lembrar que o número de siglas é aleatorio (mas limitado de 1 a 10 siglas) 
+o programa vai receber um valor inteiro chamado de num_caract e deve gerar um número aleatório de siglas formadas por uma letra inicial fornecida pelo programa zero ou mais letras que vão ser controladas pelo num_caract e uma letra final que pode ser "v" ou "f", ao gerar um sigla ele deve adicionar "|" ou "." sendo "|" usado para quando existem mais siglas geradas adiante e "." significa que chega ao fim do código. o num_caract é limitadas de 0 a 2, caso sejam 0 ele só gera a primeira e ultima letra, se for igual 1, ele terá uma letra a mais após a primeira sendo essa chamada de característica podendo ser "x" ou "n", já no caso de num_caract ser 2 ele vai gerar siglas com outra letra anterior a a ultima, sendo essa letra "y" ou "n". Quanto a ultima letra ela tem uma porcentagem fornecida pelo sistema com a chance de ser "f", mas por padrão ele recebe "v". Vale lembrar que o número de siglas é aleatório (mas limitado de 1 a 10 siglas).
 ex:     
   "av|av|av|av." (caso num_caract = 0, letra inicial = a, chance da ultima letra ser "f" = 0%) 
 	"av|av|af|af." (caso num_caract = 0, letra inicial = a, chance da ultima letra ser "f" = 50%)
