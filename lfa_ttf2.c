@@ -26,8 +26,8 @@ typedef struct {
     char next_state;
 } Transition;
 
-void generateFitaSiglas(char* fitaSiglas, int numCaract, int chanceFalha);
-void separateSiglas(char* fitaSiglas, SymbolIndex* symbolIndex, int* numSymbols);
+void generateFitaSiglas(int num_caract, int chance_falha, char* fita_siglas);
+char generateSigla(int num_caract, int chance_falha);
 void runAutomatonWithStack(char* fitaO, Transition* transitions, int numTransitions, Vehicle* vehicles, int* numVehicles);
 void executeTransition(char currentState, char readSymbol, char pushSymbol, char popSymbol, char* nextSymbol, int num_caract);
 void transitionsForNumCaract0(char currentState, char readSymbol, char pushSymbol, char popSymbol, char* nextSymbol);
