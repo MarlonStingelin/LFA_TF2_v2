@@ -131,12 +131,18 @@ char generateSigla(int num_caract, int chance_falha) {
 
     // Caso num_caract = 0, gera 'av' ou 'af' com probabilidade 50%
     if (num_caract == 0) {
-        sigla = (rand() % 2 == 0) ? 'v' : 'f';
-        sigla = (rand() % 2 == 0) ? 'a' + sigla : sigla;
+        sigla = "a";
+        // Sempre termina com 'v' ou 'f' (a chance de ser 'f' é determinada por chance_falha)
+        if (rand() % 100 < chance_falha) {
+            sigla = 'f';  // Adiciona 'f' com probabilidade igual à chance_falha
+        } else {
+            sigla = 'v';  // Adiciona 'v' com probabilidade 100 - chance_falha
+        }
     }
 
     // Caso num_caract = 1
     else if (num_caract == 1) {
+        sigla = "a";
         // Adiciona 'x' ou 'n' com probabilidade 50%
         sigla = (rand() % 2 == 0) ? 'x' : 'n';
 
@@ -150,6 +156,7 @@ char generateSigla(int num_caract, int chance_falha) {
 
     // Caso num_caract = 2
     else if (num_caract == 2) {
+        sigla = "a";
         // Adiciona 'x' ou 'n' com probabilidade 50%
         sigla = (rand() % 2 == 0) ? 'x' : 'n';
 
@@ -208,12 +215,14 @@ void runAutomatonWithStack(char* fitaO, Transition* transitions, int numTransiti
     }
 
     char* result_o = transformResult(fitaO);
-
+    
+    /*
     // Imprime as informações para cada veículo gerado
     for (int i = 0; i < *numVehicles; ++i) {
-        printf("Veículo %d - isigla - Modelo: %c Características: %s Montagem: %s\n",
+        printf("Veículo %d - sigla - Modelo: %c Características: %s Montagem: %s\n",
                i + 1, vehicles[i].nome_modelo, (num_caract == 0) ? "nenhuma" : "alguma", (vehicles[i].success == 'T') ? "com sucesso" : "com falhas");
     }
+    */
 
     free(result_o);
 }
@@ -356,25 +365,25 @@ void printReport(Vehicle* vehicles, int numVehicles, int maxProd, int num_caract
 
     // Informações para cada veículo gerado
     for (int i = 0; i < numVehicles; i++) {
-        printf("\nVeículo %d - isigla - Modelo: %c Características: ", i + 1, vehicles[i].nome_modelo);
+        printf("\nVeículo %d - sigla - Modelo: %c Características: ", i + 1, vehicles[i].nome_modelo);
 
         if (num_caract == 0) {
             printf("nenhuma");
         } else if (num_caract == 1) {
-            if (vehicles[i].caract_1 == 'x' || vehicles[i].caract_1 == 'n') {
+            if (vehicles[i].caract_1 == 'n') {
                 printf("nenhuma");
             } else {
                 printf("%c", vehicles[i].caract_1);
             }
         } else if (num_caract == 2) {
-            if (vehicles[i].caract_1 == 'x' || vehicles[i].caract_1 == 'n') {
+            if (vehicles[i].caract_1 == 'n' && vehicles[i].caract_2 == 'n') {
                 printf("nenhuma");
-            } else {
+            } else if (vehicles[i].caract_1 == 'x' && vehicles[i].caract_2 == 'n') {
                 printf("%c", vehicles[i].caract_1);
-            }
-
-            if (vehicles[i].caract_2 == 'y') {
-                printf("%c", vehicles[i].caract_2);
+            } else if (vehicles[i].caract_1 == 'n' && vehicles[i].caract_2 == 'y') {
+                printf("%c", vehicles[i].caract_1);
+            } else if (vehicles[i].caract_1 == 'n' && vehicles[i].caract_2 == 'y') {
+                printf("%c e %c", vehicles[i].caract_2, vehicles[i].caract_2);
             }
         }
 
