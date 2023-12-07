@@ -365,25 +365,25 @@ void printReport(Vehicle* vehicles, int numVehicles, int maxProd, int num_caract
 
     // Informações para cada veículo gerado
     for (int i = 0; i < numVehicles; i++) {
-        printf("\nVeículo %d - sigla - Modelo: %c Características: ", i + 1, vehicles[i].nome_modelo);
+        printf("\nVeículo %d - Modelo: %c Características: ", i + 1, vehicles[i].nome_modelo);
 
         if (num_caract == 0) {
-            printf("nenhuma");
+            printf("nenhuma - Sigla: a");
         } else if (num_caract == 1) {
             if (vehicles[i].caract_1 == 'n') {
-                printf("nenhuma");
+                printf("nenhuma - Sigla: an");
             } else {
-                printf("%c", vehicles[i].caract_1);
+                printf("%c - Sigla: ax", vehicles[i].caract_1);
             }
         } else if (num_caract == 2) {
             if (vehicles[i].caract_1 == 'n' && vehicles[i].caract_2 == 'n') {
-                printf("nenhuma");
+                printf("nenhuma - Sigla: ann");
             } else if (vehicles[i].caract_1 == 'x' && vehicles[i].caract_2 == 'n') {
-                printf("%c", vehicles[i].caract_1);
+                printf("%c - Sigla: axn", vehicles[i].caract_1);
             } else if (vehicles[i].caract_1 == 'n' && vehicles[i].caract_2 == 'y') {
-                printf("%c", vehicles[i].caract_1);
+                printf("%c - Sigla: any", vehicles[i].caract_1);
             } else if (vehicles[i].caract_1 == 'n' && vehicles[i].caract_2 == 'y') {
-                printf("%c e %c", vehicles[i].caract_2, vehicles[i].caract_2);
+                printf("%c e %c - Sigla: axy", vehicles[i].caract_2, vehicles[i].caract_2);
             }
         }
 
