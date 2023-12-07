@@ -97,7 +97,7 @@ int main() {
     // resultado organizado
     // printf("Resultado Organizado: %s\n", result_o);
 
-    printReport(vehicles, numVehicles, maxProd);
+    printReport(vehicles, numVehicles, maxProd, numCaract);
 
     free(result_o);
 
